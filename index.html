@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Website Layout</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-rows: 100px 50px 1fr;
+    height: 100vh;
+}
+
+/* Row 1 */
+.row1 {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    background: #f2f2f2;
+    border-bottom: 1px solid #ccc;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img {
+    height: 70px;
+}
+.header {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+/* Row 2 */
+.row2 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background: #4CAF50;
+}
+.row2 a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 15px;
+}
+.row2 a:hover {
+    background: #45a049;
+}
+
+/* Row 3 */
+.row3 {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+.sidebar {
+    background: #eee;
+    padding: 10px;
+}
+.sidebar a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+}
+.sidebar a:hover {
+    background: #ddd;
+}
+
+.main-content {
+    padding: 15px;
+}
+</style>
+
+<script>
+function loadContent(service) {
+    let content = "";
+
+    if (service === 'service1') {
+        content = `
+        <h2>Service 1</h2>
+        <p>This service provides complete product information.</p>
+        <p>Users can view specifications, features, and pricing.</p>`;
+    }
+    else if (service === 'service2') {
+        content = `
+        <h2>Service 2</h2>
+        <p>This service offers customer support.</p>
+        <p>Users can get help with orders, payments, and queries.</p>`;
+    }
+    else if (service === 'service3') {
+        content = `
+        <h2>Service 3</h2>
+        <p>This service provides maintenance and updates.</p>
+        <p>We ensure smooth and reliable system performance.</p>`;
+    }
+    else {
+        content = `
+        <h2>Welcome</h2>
+        <p>Select a service to view details.</p>`;
+    }
+
+    document.getElementById("content").innerHTML = content;
+}
+</script>
+</head>
+
+<body>
+
+<!-- Row 1 -->
+<div class="row1">
+    <div class="logo">
+        <!-- Direct Image Link from Pexels -->
+        <img src="https://images.pexels.com/photos/3354648/pexels-photo-3354648.jpeg" alt="Website Logo">
+    </div>
+    <div class="header">
+        <h2>AUTOMOBILE SERVICES</h2>
+    </div>
+</div>
+
+<!-- Row 2 -->
+<div class="row2">
+    <a href="#" onclick="loadContent('home')">Home</a>
+    <a href="#" onclick="loadContent('login')">Login</a>
+    <a href="#" onclick="loadContent('register')">Registration</a>
+    <a href="#" onclick="loadContent('catalogue')">Catalogue</a>
+    <a href="#" onclick="loadContent('cart')">Cart</a>
+    <a href="#" onclick="loadContent('contact')">Contact Us</a>
+</div>
+
+<!-- Row 3 -->
+<div class="row3">
+    <div class="sidebar">
+        <h3>Services</h3>
+        <a href="#" onclick="loadContent('service1')">Service 1</a>
+        <a href="#" onclick="loadContent('service2')">Service 2</a>
+        <a href="#" onclick="loadContent('service3')">Service 3</a>
+    </div>
+
+    <div class="main-content" id="content">
+        <h2>Welcome</h2>
+        <p>Select a service to view details.</p>
+    </div>
+</div>
+
+</body>
+</html>
